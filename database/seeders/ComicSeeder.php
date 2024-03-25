@@ -14,6 +14,5 @@ class ComicSeeder extends Seeder
      */
     public function run()
     {
-        //
     }
 }

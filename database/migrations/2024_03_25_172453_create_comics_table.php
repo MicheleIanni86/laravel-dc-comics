@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('thumb')->nullable();
             $table->string('price', 30);
             $table->string('series');
-            $table->date('sale_date');
+            $table->date('sale_date')->nullable();
             $table->enum('type', ['comic book', 'graphic novel']);
 
             $table->timestamps();

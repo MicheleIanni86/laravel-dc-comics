@@ -5,6 +5,9 @@
 @section('main-content')
   <section>
     <div class="container py-4">
+      <div class="text-start">
+        <a class="btn btn-primary my-4" href="{{ route('comics.create') }}">Crea Nuovo Fumetto  <i class="fa-solid fa-plus"></i></a>
+    </div>
       <h1 class="text-center mb-5">Lista Fumetti!</h1>
 
       <table class="table">

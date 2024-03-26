@@ -12,4 +12,9 @@ use App\Http\Controllers\ComicController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource("comics", ComicController::class);
+
+Route::get('/', function () {
+  return view('home');
+})->name('home');
+
+Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');

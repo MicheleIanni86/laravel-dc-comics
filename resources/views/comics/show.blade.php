@@ -7,8 +7,7 @@
 <section>
     <div class="container">
 
-        <a class="btn btn-primary my-4" href="{{ route('comics.index') }}"><i class="fa-solid fa-left-long"></i> Torna Indietro</a>
-      <h1 class="mb-5">Dettaglio Fumetto: <strong>{{ $comic->title }}</strong></h1>
+      <h1 class="mb-5 mt-3">Dettaglio Fumetto: <strong>{{ $comic->title }}</strong></h1>
     
     <div class="row">
         <div class="col-2">
@@ -36,6 +35,10 @@
                     <p class="fw-bold">{{ $comic->type }}</p>       
                 </div>
             </div>
+        </div>
+        
+        <div class="text-end">
+            <a class="btn btn-primary my-4 text-end" href="{{ route('comics.index') }}"><i class="fa-solid fa-left-long"></i> Torna Indietro</a>
         </div>
     </div>
     

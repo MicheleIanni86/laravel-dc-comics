@@ -5,30 +5,30 @@
 @section('main-content')
   <section>
     <div class="container py-4">
-      <h1>Lista Fumetti!</h1>
+      <h1 class="text-center mb-5">Lista Fumetti!</h1>
 
       <table class="table">
         <thead>
-            <tr>
-                <th>title</th>
-                <th>description</th>
-                <th>thumb</th>
-                <th>price</th>
-                <th>series</th>
-                <th>sale_date</th>
-                <th>type</th>
+            <tr class="text-center">
+                <th>ID</th>
+                <th>TITOLO</th>    
+                <th>PREZZO</th>
+                <th>SERIE</th>
+                <th>DATA USCITA</th>
+                <th>TIPO</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @forelse ($comics as $comic)
-            <tr>
-                <td>{{ $comic->title }}</td>
-                <td>{{ $comic->description }}</td>
-                <td>{{ $comic->thumb }}</td>
+            <tr class="text-center">
+                <td>{{ $comic->id }}</td>
+                <td>{{ $comic->title }}</td>               
                 <td>{{ $comic->price }}</td>
                 <td>{{ $comic->series }}</td>
                 <td>{{ $comic->sale_date }}</td>
                 <td>{{ $comic->type }}</td>
+                <td><a href="{{ route('comics.show', $comic) }}"><i class="fa-solid fa-eye"></i></a></td>
 
             </tr>
                 
@@ -43,4 +43,8 @@
       </table>
     </div>
   </section>
+@endsection
+
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endsection

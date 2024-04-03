@@ -38,6 +38,9 @@
         </div>
         
         <div class="text-end">
+        </div>
+        <div class="text-end">
+            <a class="btn btn-primary my-4 text-end" href="{{ route('comics.edit', $comic) }}"> Vai alla modifica</a>
             <a class="btn btn-primary my-4 text-end" href="{{ route('comics.index') }}"><i class="fa-solid fa-left-long"></i> Torna Indietro</a>
         </div>
     </div>

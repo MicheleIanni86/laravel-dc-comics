@@ -23,7 +23,7 @@
         
         @include('partials.footer')
     </div>
-        
+        @yield('modal')
         @yield('js')
   </body>
 

@@ -39,29 +39,7 @@
                 <td class="p-0"><button class="btn btn-link p-0 pt-2 ps-2" data-bs-toggle="modal" data-bs-target="#delete-comic-{{ $comic->id }}-modal">
                   <i class="fa-solid fa-trash-can text-danger"></i>
                 </button>
-                <div class="modal fade" id="delete-comic-{{ $comic->id }}-modal" tabindex="-1" aria-labelledby="delete-comic-{{ $comic->id }}-modal" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina Fumetto {{ $comic->title }}</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Sei sicuro di voler cancellare questo fumetto?
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non Cancellare</button>
-                        <form action="{{ route('comics.destroy', $comic) }}" method="POST">
-                          @csrf
-                          @method('DELETE')
-                          <button class="btn btn-danger">
-                            Si Cancella
-                          </button>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
                 
                 </td>
 
@@ -89,6 +67,34 @@
       </table>
     </div>
   </section>
+@endsection
+
+@section('modal')
+  @foreach ($comics as $comic)
+  <div class="modal fade" id="delete-comic-{{ $comic->id }}-modal" tabindex="-1" aria-labelledby="delete-comic-{{ $comic->id }}-modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Elimina Fumetto {{ $comic->title }}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Sei sicuro di voler cancellare questo fumetto?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Non Cancellare</button>
+          <form action="{{ route('comics.destroy', $comic) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger">
+              Si Cancella
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
 @endsection
 
 @section('css')

@@ -18,18 +18,20 @@ Route::get('/', function () {
 })->name('home');
 
 
-// lettura
-Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
-Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
+// // lettura
+// Route::get('/comics', [ComicController::class, 'index'])->name('comics.index');
+// Route::get('/comics/{comic}', [ComicController::class, 'show'])->name('comics.show');
 
 
-// creazione
-Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.create');
-Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
+// // creazione
+// Route::get('/comics/create', [ComicController::class, 'create'])->name('comics.create');
+// Route::post('/comics', [ComicController::class, 'store'])->name('comics.store');
 
-// modifica
-Route::get('/comics/{comic}/edit', [ComicController::class, 'edit'])->name('comics.edit');
-Route::patch('/comics/{comic}', [ComicController::class, 'update'])->name('comics.update');
+// // modifica
+// Route::get('/comics/{comic}/edit', [ComicController::class, 'edit'])->name('comics.edit');
+// Route::patch('/comics/{comic}', [ComicController::class, 'update'])->name('comics.update');
 
-// eliminazione
-Route::delete('/comics/{comic}', [ComicController::class, 'destroy'])->name('comics.destroy');
+// // eliminazione
+// Route::delete('/comics/{comic}', [ComicController::class, 'destroy'])->name('comics.destroy');
+
+Route::resource('comics', ComicController::class);

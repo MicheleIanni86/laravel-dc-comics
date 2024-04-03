@@ -21,7 +21,7 @@ class ComicController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     
      */
     public function create()
     {
@@ -37,7 +37,7 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $comic = new Comic();
+        $comic = new Comic;
         $comic->title = $data['title'];
         $comic->thumb = $data['thumb'];
         $comic->price = $data['price'];

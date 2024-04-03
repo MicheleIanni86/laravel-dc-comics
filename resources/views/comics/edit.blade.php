@@ -1,30 +1,31 @@
 @extends('layouts.app')
 
-@section('title', 'Crea nuovo fumetto')
+@section('title', 'Modifica fumetto ' . $comic->name)
 
 @section('main-content')
   <section>
     <div class="container py-4">
-      <h1>Crea nuovo fumetto</h1>
-      <form action="{{ route('comics.store') }}" method="POST">
-        @csrf
+      <h1>Modifica fumetto {{ $comic->name }}</h1>
 
+      <form action="{{ route('comics.update', $comic) }}" method="POST">
+        @csrf
+        @method('PATCH')
         <div class="row mt-4">
             <div class="col-3">
                 <label for="title" class="form-label">Titolo</label>
-                <input class="form-control" id="title" name="title" type="text" max="100" required/>
+                <input value="{{ $comic->title }}" class="form-control" id="title" name="title" type="text" max="100" required/>
             </div>
             <div class="col-3">
                 <label for="thumb" class="form-label">Url Immagine</label>
-                <input class="form-control" id="thumb" name="thumb" type="url"/>
+                <input value="{{ $comic->thumb }}" class="form-control" id="thumb" name="thumb" type="url"/>
             </div>
             <div class="col-3">
                 <label for="price" class="form-label">Prezzo</label>
-                <input class="form-control" id="price" name="price" type="text" required/>
+                <input value="{{ $comic->price }}" class="form-control" id="price" name="price" type="text" required/>
             </div>
             <div class="col-3">
                 <label for="series" class="form-label">Serie</label>
-                <input class="form-control" id="series" name="series" type="text" required/>
+                <input value="{{ $comic->series }}" class="form-control" id="series" name="series" type="text" required/>
             </div>
         </div>
         
@@ -32,20 +33,21 @@
             <div class="col-9">
                 <label for="description" class="form-label">Descrizione</label>
 
-                <textarea class="form-control" name="description" id="description" rows="1"></textarea>
+                <textarea  class="form-control" name="description" id="description" rows="1">{{ $comic->description }}</textarea>
 
             </div>
             <div class="col-3">
                 <label for="series" class="form-label">Tipo/Stile</label>
                 <select class="form-select" name="type" id="type" required>
-                    <option value="comic book">Comic Book</option>
-                    <option value="graphic novel">Graphic Novel</option>
+                    <option @if ($comic->type == 'comic book') selected @endif value="comic book"                       
+                    >Comic Book</option>
+                    <option @if ($comic->type == 'graphic novel') selected @endif value="graphic novel">Graphic Novel</option>
                 </select>
             </div>
             
         </div>
         <div class="mt-3">
-            <button class="btn btn-success"><i class="fa-regular fa-floppy-disk"></i> Salva</button>
+            <button class="btn btn-success"><i class="fa-regular fa-floppy-disk"></i> Modifica</button>
         </div>
         
         

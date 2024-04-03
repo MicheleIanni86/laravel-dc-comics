@@ -20,6 +20,7 @@
                 <th>DATA USCITA</th>
                 <th>TIPO</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@
                 <td>{{ $comic->sale_date }}</td>
                 <td>{{ $comic->type }}</td>
                 <td><a href="{{ route('comics.show', $comic) }}"><i class="fa-solid fa-eye"></i></a></td>
+                <td><a href="{{ route('comics.edit', $comic) }}"><i class="fa-solid fa-pen"></i></a></td>
 
             </tr>
                 
